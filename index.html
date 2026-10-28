@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="id" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UangKu — Atur Uang dengan Amplop Digital</title>
+<meta name="description" content="UangKu membantumu membagi uang bulanan ke amplop digital, mencatat pengeluaran, dan melihat sisa uang secara real-time. Gratis, tanpa iklan, data aman." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232F6E4E'/%3E%3Cpath d='M16 24 32 18l16 6M16 24v20l16 6 16-6V24M32 30v26' stroke='%23fff' stroke-width='4' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="#top" class="brand" aria-label="UangKu beranda">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 7.5 12 4l8 3.5M4 7.5v9L12 20l8-3.5v-9M4 7.5 12 11l8-3.5M12 11v9" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      </span>
+      UangKu
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Navigasi utama">
+      <a href="#fitur">Fitur</a>
+      <a href="#amplop">Amplop</a>
+      <a href="#cara-kerja">Cara Kerja</a>
+      <a href="#tampilan">Tampilan</a>
+      <a href="#harga">Harga</a>
+      <a href="#faq">FAQ</a>
+      <a href="#unduh" class="btn btn--primary btn--sm nav__cta-m">Download</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a href="#unduh" class="btn btn--primary btn--sm nav__cta">Download Gratis</a>
+      <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
+  <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
+  <div class="hero__blob hero__blob--3" aria-hidden="true"></div>
+
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <span class="badge reveal">✨ Baru — amplop otomatis setiap gajian</span>
+      <h1 class="reveal" style="--d:.08s">
+        Uang bulanan lebih <span class="hl">terkontrol</span> dengan amplop digital.
+      </h1>
+      <p class="lead reveal" style="--d:.16s">
+        UangKu membagi penghasilanmu ke amplop seperti <strong>Makan & Minum</strong>,
+        <strong>Transport</strong>, dan <strong>Darurat</strong> — lengkap dengan catatan
+        pengeluaran real-time supaya kamu selalu tahu ke mana uangmu pergi.
+      </p>
+
+      <div class="hero__cta reveal" style="--d:.24s">
+        <a href="#unduh" class="btn btn--primary btn--lg">
+          Download Gratis
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M12 4v12m0 0 5-5m-5 5-5-5M5 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#cara-kerja" class="btn btn--ghost btn--lg">
+          <span class="play" aria-hidden="true">▶</span> Lihat cara kerja
+        </a>
+      </div>
+
+      <ul class="hero__meta reveal" style="--d:.32s">
+        <li>Gratis selamanya</li>
+        <li>Tanpa iklan</li>
+        <li>Data terenkripsi</li>
+      </ul>
+
+      <div class="hero__social reveal" style="--d:.4s">
+        <div class="avatars" aria-hidden="true">
+          <span style="--i:0">R</span><span style="--i:1">D</span><span style="--i:2">A</span><span style="--i:3">B</span>
+        </div>
+        <p><strong>4,9/5</strong> dari 12.400+ ulasan pengguna</p>
+      </div>
+    </div>
+
+    <!-- Phone mockup -->
+    <div class="hero__visual reveal" style="--d:.2s">
+      <div class="phone-float">
+        <div class="phone" id="phone">
+          <div class="phone__notch" aria-hidden="true"></div>
+          <div class="phone__screen">
+            <img src="images/Beranda.png" alt="Layar Beranda UangKu" class="screen is-active" data-screen="0" />
+            <img src="images/Catatan.png" alt="Layar Catatan Pengeluaran UangKu" class="screen" data-screen="1" />
+            <img src="images/Detail%20Amplop.png" alt="Layar Detail Amplop UangKu" class="screen" data-screen="2" />
+          </div>
+          <div class="phone__bar" aria-hidden="true"></div>
+        </div>
+
+        <div class="phone__dots" role="tablist" aria-label="Pilih layar aplikasi">
+          <button class="dot is-active" data-goto="0" aria-label="Beranda"></button>
+          <button class="dot" data-goto="1" aria-label="Catatan"></button>
+          <button class="dot" data-goto="2" aria-label="Detail Amplop"></button>
+        </div>
+
+        <div class="float-card float-card--1" aria-hidden="true">
+          <span class="float-card__ic float-card__ic--green">↓</span>
+          <div><small>Pengeluaran hari ini</small><strong>Rp65.000</strong></div>
+        </div>
+        <div class="float-card float-card--2" aria-hidden="true">
+          <span class="float-card__ic float-card__ic--cream">🍜</span>
+          <div><small>Amplop Makan</small><strong>85% masih aman</strong></div>
+        </div>
+        <div class="float-card float-card--3" aria-hidden="true">
+          <span class="float-card__ic float-card__ic--blue">✓</span>
+          <div><small>Sisa bulan ini</small><strong>Rp2.600.000</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span>Makan & Minum</span><i>•</i><span>Transport</span><i>•</i><span>Jajan & Hiburan</span><i>•</i><span>Darurat</span><i>•</i><span>Tabungan</span><i>•</i><span>Listrik & Air</span><i>•</i><span>Kuota Internet</span><i>•</i><span>Pulangan Orang Tua</span><i>•</i>
+    <span>Makan & Minum</span><i>•</i><span>Transport</span><i>•</i><span>Jajan & Hiburan</span><i>•</i><span>Darurat</span><i>•</i><span>Tabungan</span><i>•</i><span>Listrik & Air</span><i>•</i><span>Kuota Internet</span><i>•</i><span>Pulangan Orang Tua</span><i>•</i>
+  </div>
+</div>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="container stats__grid">
+    <div class="stat reveal">
+      <strong><span class="count" data-target="52" data-suffix="rb+">0</span></strong>
+      <p>Pengguna aktif bulanan</p>
+    </div>
+    <div class="stat reveal" style="--d:.1s">
+      <strong>Rp<span class="count" data-target="13.7" data-decimals="1" data-suffix="T">0</span></strong>
+      <p>Pengeluaran tercatat</p>
+    </div>
+    <div class="stat reveal" style="--d:.2s">
+      <strong><span class="count" data-target="4.9" data-decimals="1">0</span><span class="stat__star">★</span></strong>
+      <p>Rating di App Store</p>
+    </div>
+    <div class="stat reveal" style="--d:.3s">
+      <strong><span class="count" data-target="87" data-suffix="%">0</span></strong>
+      <p>Lebih hemat di bulan pertama</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FITUR ============ -->
+<section class="section" id="fitur">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow reveal">Fitur lengkap</span>
+      <h2 class="reveal" style="--d:.08s">Semua yang kamu butuhkan untuk <span class="hl">disiplin</span> tanpa pusing</h2>
+      <p class="section__sub reveal" style="--d:.16s">Dari mencatat hingga menganalisis — semua dalam satu aplikasi yang ringan dan menyenangkan dipakai setiap hari.</p>
+    </div>
+
+    <div class="features">
+      <article class="feature reveal">
+        <span class="feature__ic feature__ic--green">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6H18a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8.5Z" stroke="currentColor" stroke-width="1.7"/><path d="M3 9.5h13.5a1.5 1.5 0 0 1 0 3H16" stroke="currentColor" stroke-width="1.7"/><circle cx="17" cy="14" r="1.2" fill="currentColor"/></svg>
+        </span>
+        <h3>Amplop Digital</h3>
+        <p>Pisahkan uang ke amplop per kebutuhan. Setiap rupiah punya tempat, sehingga tidak ada pengeluaran tanpa rencana.</p>
+      </article>
+
+      <article class="feature reveal" style="--d:.08s">
+        <span class="feature__ic feature__ic--cream">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 3.5h9L19 8v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 20V5a1.5 1.5 0 0 1 1-1.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 12h7M8.5 15.5h7M8.5 8.5h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Catatan Kilat</h3>
+        <p>Tambah pengeluaran dalam 2 ketukan. Pilih kategori, masukkan nominal, selesai — riwayat langsung tersusun rapi.</p>
+      </article>
+
+      <article class="feature reveal" style="--d:.16s">
+        <span class="feature__ic feature__ic--blue">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V9m5.5 10V5m5 14v-7m5.5 7V8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Anggaran Otomatis</h3>
+        <p>Total anggaran, uang terpakai, dan sisa uang bulan ini dihitung otomatis setiap kali kamu mencatat transaksi.</p>
+      </article>
+
+      <article class="feature reveal" style="--d:.24s">
+        <span class="feature__ic feature__ic--lav">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5a8.5 8.5 0 1 0 8.5 8.5H12V3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14.5 3.9A8.5 8.5 0 0 1 20.1 9.5H14.5V3.9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Laporan & Grafik</h3>
+        <p>Lihat komposisi pengeluaran per bulan lewat grafik yang jelas, plus filter bulan untuk bandingkan kebiasaan belanja.</p>
+      </article>
+
+      <article class="feature reveal" style="--d:.32s">
+        <span class="feature__ic feature__ic--green">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 10a6 6 0 1 1 12 0c0 4 1.5 5.5 1.5 5.5h-15S6 14 6 10Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M10.5 19a1.8 1.8 0 0 0 3 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Pengingat Bijak</h3>
+        <p>Dapat notifikasi saat amplop hampir habis atau tanggal gajian tiba, supaya kamu bisa menyesuaikan sebelum kebablasan.</p>
+      </article>
+
+      <article class="feature reveal" style="--d:.4s">
+        <span class="feature__ic feature__ic--cream">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5 19 6v5.5c0 4.3-2.9 7.6-7 9-4.1-1.4-7-4.7-7-9V6l7-2.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2.2 2.2L15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Aman & Privat</h3>
+        <p>Data terenkripsi, tanpa iklan, dan tidak dijual ke pihak ketiga. Keuanganmu adalah urusanmu sendiri.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AMPLOP SHOWCASE ============ -->
+<section class="section section--mint" id="amplop">
+  <div class="container split">
+    <div class="split__copy">
+      <span class="eyebrow reveal">Inti dari UangKu</span>
+      <h2 class="reveal" style="--d:.08s">Sisa uang bulan ini <span class="hl">Rp2.600.000</span> — kamu selalu tahu</h2>
+      <p class="section__sub reveal" style="--d:.16s">
+        Setiap amplop punya bar progres sendiri. Cukup sekali lihat, kamu langsung paham amplop mana yang masih lega
+        dan mana yang harus ditekan.
+      </p>
+      <ul class="checklist reveal" style="--d:.24s">
+        <li>Anggaran Rp3.000.000 · baru terpakai Rp400.000</li>
+        <li>Bar progres berubah real-time tiap transaksi</li>
+        <li>Riwayat per amplop lengkap dengan keterangan</li>
+      </ul>
+      <a href="#unduh" class="btn btn--primary reveal" style="--d:.32s">Coba amplop gratis</a>
+    </div>
+
+    <div class="split__cards">
+      <article class="env env--green reveal" data-progress="15">
+        <header><span class="env__ic">🍜</span><span class="env__arrow">↗</span></header>
+        <h3>Makan & Minum</h3>
+        <strong class="env__amount">Rp1.200.000</strong>
+        <div class="bar"><span class="bar__fill"></span></div>
+        <small>Rp180.000 terpakai · 15%</small>
+      </article>
+
+      <article class="env env--blue reveal" style="--d:.1s" data-progress="13">
+        <header><span class="env__ic">🚗</span><span class="env__arrow">↗</span></header>
+        <h3>Transport</h3>
+        <strong class="env__amount">Rp600.000</strong>
+        <div class="bar"><span class="bar__fill"></span></div>
+        <small>Rp75.000 terpakai · 13%</small>
+      </article>
+
+      <article class="env env--lav reveal" style="--d:.2s" data-progress="25">
+        <header><span class="env__ic">🧋</span><span class="env__arrow">↗</span></header>
+        <h3>Jajan & Hiburan</h3>
+        <strong class="env__amount">Rp400.000</strong>
+        <div class="bar"><span class="bar__fill"></span></div>
+        <small>Rp100.000 terpakai · 25%</small>
+      </article>
+
+      <article class="env env--cream reveal" style="--d:.3s" data-progress="6">
+        <header><span class="env__ic">🆘</span><span class="env__arrow">↗</span></header>
+        <h3>Darurat</h3>
+        <strong class="env__amount">Rp800.000</strong>
+        <div class="bar"><span class="bar__fill"></span></div>
+        <small>Rp45.000 terpakai · 6%</small>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KALKULATOR ============ -->
+<section class="section" id="kalkulator">
+  <div class="container">
+    <div class="calc reveal">
+      <div class="calc__head">
+        <span class="eyebrow">Kalkulator amplop</span>
+        <h2>Berapa isinya tiap amplop?</h2>
+        <p>Geser penggeser di bawah untuk melihat pembagian anggaran rekomendasi dari penghasilan bulananmu.</p>
+      </div>
+
+      <div class="calc__body">
+        <div class="calc__control">
+          <label for="income">Penghasilan bulanan</label>
+          <output id="incomeOut" for="income">Rp5.000.000</output>
+          <input type="range" id="income" min="1000000" max="30000000" step="500000" value="5000000" />
+          <div class="calc__range-labels"><span>Rp1 jt</span><span>Rp30 jt</span></div>
+        </div>
+
+        <div class="calc__result" id="calcResult">
+          <div class="calc__item calc__item--green"><span>Kebutuhan</span><strong data-pct="50">Rp2.500.000</strong></div>
+          <div class="calc__item calc__item--blue"><span>Transport</span><strong data-pct="15">Rp750.000</strong></div>
+          <div class="calc__item calc__item--green2"><span>Tabungan</span><strong data-pct="20">Rp1.000.000</strong></div>
+          <div class="calc__item calc__item--lav"><span>Gaya hidup</span><strong data-pct="15">Rp750.000</strong></div>
+        </div>
+      </div>
+      <p class="calc__note">* Pembagian bersifat saran. Ubah persentase sesukamu langsung di aplikasi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARA KERJA ============ -->
+<section class="section section--dark" id="cara-kerja">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow eyebrow--light reveal">Cara kerja</span>
+      <h2 class="reveal" style="--d:.08s">Tiga langkah, lima menit, selesai</h2>
+      <p class="section__sub section__sub--light reveal" style="--d:.16s">Tidak perlu spreadsheet rumit. UangKu dibuat untuk dipakai sambil rebahan.</p>
+    </div>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="step__num">01</span>
+        <h3>Unduh & daftar</h3>
+        <p>Buat akun dalam 30 detik — cukup email, tanpa kartu kredit, tanpa ribet.</p>
+      </li>
+      <li class="step reveal" style="--d:.12s">
+        <span class="step__num">02</span>
+        <h3>Buat amplopmu</h3>
+        <p>Tentukan pos pengeluaran seperti Makan, Transport, dan Darurat beserta nominalnya.</p>
+      </li>
+      <li class="step reveal" style="--d:.24s">
+        <span class="step__num">03</span>
+        <h3>Catat & pantau</h3>
+        <p>Setiap transaksi langsung mengurangi amplop. Kamu selalu tahu sisa uangmu.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ TAMPILAN ============ -->
+<section class="section" id="tampilan">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow reveal">Tampilan aplikasi</span>
+      <h2 class="reveal" style="--d:.08s">Rapi, ringan, dan enak dipandang</h2>
+      <p class="section__sub reveal" style="--d:.16s">Antarmuka bersih dengan warna lembut — informasi penting selalu berada di depan mata.</p>
+    </div>
+
+    <div class="gallery">
+      <figure class="shot reveal" data-tilt>
+        <div class="shot__frame"><img src="images/Beranda.png" alt="Layar Beranda UangKu" loading="lazy" /></div>
+        <figcaption><strong>Beranda</strong><span>Sisa uang bulan ini & semua amplop dalam satu layar.</span></figcaption>
+      </figure>
+      <figure class="shot reveal" style="--d:.12s" data-tilt>
+        <div class="shot__frame"><img src="images/Catatan.png" alt="Layar Catatan Pengeluaran UangKu" loading="lazy" /></div>
+        <figcaption><strong>Catatan</strong><span>Riwayat pengeluaran bulanan beserta total otomatis.</span></figcaption>
+      </figure>
+      <figure class="shot reveal" style="--d:.24s" data-tilt>
+        <div class="shot__frame"><img src="images/Detail%20Amplop.png" alt="Layar Detail Amplop UangKu" loading="lazy" /></div>
+        <figcaption><strong>Detail Amplop</strong><span>Pemakaian anggaran per kategori dengan progres jelas.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONI ============ -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow reveal">Kata pengguna</span>
+      <h2 class="reveal" style="--d:.08s">Cerita mereka setelah pakai UangKu</h2>
+    </div>
+
+    <div class="testi reveal" style="--d:.16s">
+      <div class="testi__viewport">
+        <div class="testi__track" id="testiTrack">
+          <blockquote class="testi__item">
+            <div class="testi__stars">★★★★★</div>
+            <p>“Akhirnya tahu kenapa gajian selalu habis di tengah bulan. Bar progres di tiap amplop bikin aku mikir dua kali sebelum jajan.”</p>
+            <footer><span class="testi__ava" style="--c:#2F6E4E">R</span><div><strong>Rina Ardhani</strong><small>Mahasiswi, Yogyakarta</small></div></footer>
+          </blockquote>
+          <blockquote class="testi__item">
+            <div class="testi__stars">★★★★★</div>
+            <p>“Catat pengeluaran cuma butuh 2 ketukan. Sebulan pertama pakai, saya berhasil nabung Rp1,8 juta tanpa terasa.”</p>
+            <footer><span class="testi__ava" style="--c:#C97B4A">D</span><div><strong>Dimas Pratama</strong><small>Karyawan swasta, Jakarta</small></div></footer>
+          </blockquote>
+          <blockquote class="testi__item">
+            <div class="testi__stars">★★★★★</div>
+            <p>“Sebagai freelancer pemasukan tidak tetap, fitur anggaran bulanan ini menyelamatkan saya dari kepanikan akhir bulan.”</p>
+            <footer><span class="testi__ava" style="--c:#5B7FBF">A</span><div><strong>Ayu Lestari</strong><small>Freelance designer, Bandung</small></div></footer>
+          </blockquote>
+          <blockquote class="testi__item">
+            <div class="testi__stars">★★★★★</div>
+            <p>“Tampilannya bersih dan tidak bikin pusing. Istri saya yang dulu anti catat keuangan sekarang ikut semangat.”</p>
+            <footer><span class="testi__ava" style="--c:#7B5BB5">B</span><div><strong>Bagus Wicaksono</strong><small>Wiraswasta, Surabaya</small></div></footer>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="testi__nav">
+        <button class="tbtn" id="testiPrev" aria-label="Testimoni sebelumnya">‹</button>
+        <div class="testi__dots" id="testiDots"></div>
+        <button class="tbtn" id="testiNext" aria-label="Testimoni berikutnya">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HARGA ============ -->
+<section class="section" id="harga">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow reveal">Harga</span>
+      <h2 class="reveal" style="--d:.08s">Mulai gratis, upgrade kapan pun</h2>
+      <p class="section__sub reveal" style="--d:.16s">Tanpa iklan di semua paket. Batalkan kapan saja.</p>
+
+      <div class="switch reveal" style="--d:.24s" role="group" aria-label="Periode pembayaran">
+        <button class="switch__btn is-active" data-period="month">Bulanan</button>
+        <button class="switch__btn" data-period="year">Tahunan <em>−20%</em></button>
+      </div>
+    </div>
+
+    <div class="plans">
+      <article class="plan reveal">
+        <h3>Gratis</h3>
+        <p class="plan__price"><strong>Rp0</strong><span>/selamanya</span></p>
+        <p class="plan__desc">Cocok untuk mulai membiasakan catat keuangan.</p>
+        <ul>
+          <li>3 amplop aktif</li>
+          <li>Catatan pengeluaran tak terbatas</li>
+          <li>Ringkasan bulanan</li>
+          <li>1 perangkat</li>
+        </ul>
+        <a href="#unduh" class="btn btn--ghost btn--block">Mulai sekarang</a>
+      </article>
+
+      <article class="plan plan--featured reveal" style="--d:.1s">
+        <span class="plan__tag">Paling populer</span>
+        <h3>Plus</h3>
+        <p class="plan__price"><strong data-month="Rp14.900" data-year="Rp11.900">Rp14.900</strong><span>/bulan</span></p>
+        <p class="plan__desc">Untuk yang serius menata keuangan pribadi.</p>
+        <ul>
+          <li>Amplop tak terbatas</li>
+          <li>Grafik & laporan lanjutan</li>
+          <li>Pengingat & notifikasi pintar</li>
+          <li>Backup cloud & ekspor CSV</li>
+          <li>Hingga 3 perangkat</li>
+        </ul>
+        <a href="#unduh" class="btn btn--light btn--block">Coba 14 hari gratis</a>
+      </article>
+
+      <article class="plan reveal" style="--d:.2s">
+        <h3>Keluarga</h3>
+        <p class="plan__price"><strong data-month="Rp29.900" data-year="Rp23.900">Rp29.900</strong><span>/bulan</span></p>
+        <p class="plan__desc">Kelola anggaran bersama sampai 5 orang.</p>
+        <ul>
+          <li>Semua fitur Plus</li>
+          <li>5 anggota keluarga</li>
+          <li>Anggaran & amplop bersama</li>
+          <li>Ekspor PDF & CSV</li>
+          <li>Dukungan prioritas</li>
+        </ul>
+        <a href="#unduh" class="btn btn--ghost btn--block">Pilih Keluarga</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section section--mint" id="faq">
+  <div class="container container--narrow">
+    <div class="section__head">
+      <span class="eyebrow reveal">FAQ</span>
+      <h2 class="reveal" style="--d:.08s">Pertanyaan yang sering muncul</h2>
+    </div>
+
+    <div class="faq">
+      <details class="faq__item reveal" open>
+        <summary>Apa itu sistem amplop?<span class="faq__chev" aria-hidden="true"></span></summary>
+        <div class="faq__body"><p>Sistem amplop adalah metode membagi uang bulanan ke dalam pos-pos pengeluaran. Di UangKu, setiap pos menjadi “amplop” digital dengan batas dan bar progresnya sendiri.</p></div>
+      </details>
+      <details class="faq__item reveal" style="--d:.06s">
+        <summary>Apakah UangKu benar-benar gratis?<span class="faq__chev" aria-hidden="true"></span></summary>
+        <div class="faq__body"><p>Ya. Paket Gratis bisa dipakai selamanya tanpa iklan. Paket berbayar hanya membuka fitur lanjutan seperti grafik mendalam, backup cloud, dan akun keluarga.</p></div>
+      </details>
+      <details class="faq__item reveal" style="--d:.12s">
+        <summary>Apakah data keuangan saya aman?<span class="faq__chev" aria-hidden="true"></span></summary>
+        <div class="faq__body"><p>Data kamu dienkripsi saat disimpan dan dikirim. Kami tidak menjual data ke pihak ketiga dan tidak menampilkan iklan.</p></div>
+      </details>
+      <details class="faq__item reveal" style="--d:.18s">
+        <summary>Bisa dipakai offline?<span class="faq__chev" aria-hidden="true"></span></summary>
+        <div class="faq__body"><p>Bisa. Kamu tetap dapat mencatat dan melihat data terakhir tanpa koneksi internet; perubahan akan disinkronkan otomatis saat daring kembali.</p></div>
+      </details>
+      <details class="faq__item reveal" style="--d:.24s">
+        <summary>Bagaimana cara membatalkan langganan?<span class="faq__chev" aria-hidden="true"></span></summary>
+        <div class="faq__body"><p>Lewat Pengaturan → Langganan → Batalkan, langsung di aplikasi. Tidak ada biaya tersembunyi dan kamu tetap bisa memakai fitur sampai periode aktif berakhir.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UNDUH CTA ============ -->
+<section class="section" id="unduh">
+  <div class="container">
+    <div class="cta reveal">
+      <div class="cta__blob cta__blob--1" aria-hidden="true"></div>
+      <div class="cta__blob cta__blob--2" aria-hidden="true"></div>
+
+      <div class="cta__inner">
+        <span class="eyebrow eyebrow--light">Siap mulai?</span>
+        <h2>Atur uangmu hari ini, tidur lebih tenang malam ini</h2>
+        <p>Gratis untuk selamanya. Butuh 30 detik untuk mendaftar.</p>
+
+        <div class="cta__btns">
+          <a href="#" class="store" aria-label="Unduh di App Store">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M16.4 12.7c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.7-3.7ZM14.3 5.6c.6-.8 1-1.9.9-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.9 1 .1 2-.5 2.7-1.3Z"/></svg>
+            <span><small>Unduh di</small><strong>App Store</strong></span>
+          </a>
+          <a href="#" class="store" aria-label="Dapatkan di Google Play">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M4.3 2.7c-.3.3-.5.8-.5 1.4v15.8c0 .6.2 1.1.5 1.4l.1.1 8.9-8.9v-.2L4.4 2.6l-.1.1Zm12 6.9-2.6-1.5-2.3 2.3 2.3 2.3 2.6-1.5c.8-.4.8-1.2 0-1.6Zm-3.3-1.9L5.6 3.3l7.6 7.6 1.9-1.1-2.1-2.1Zm0 5.6-2.1 2.1-1.9-1.1 7.6-7.6-1.9 1.1-1.7 1.7v2.2ZM5.6 20.7l7.4-4.4 2.1 2.1-7.6 3.6c-.7.3-1.3.2-1.9-.4v-.9Z"/></svg>
+            <span><small>Dapatkan di</small><strong>Google Play</strong></span>
+          </a>
+        </div>
+
+        <ul class="cta__points">
+          <li>Tanpa kartu kredit</li><li>Tanpa iklan</li><li>Batalkan kapan saja</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a href="#top" class="brand brand--footer">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 7.5 12 4l8 3.5M4 7.5v9L12 20l8-3.5v-9M4 7.5 12 11l8-3.5M12 11v9" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </span>
+        UangKu
+      </a>
+      <p>Aplikasi amplop digital untuk mencatat pengeluaran dan menjaga uang bulanan tetap terkendali.</p>
+
+      <form class="news" id="newsForm">
+        <label class="sr-only" for="email">Email</label>
+        <input type="email" id="email" placeholder="Kamu@email.com" required />
+        <button type="submit" class="btn btn--primary btn--sm">Kirim</button>
+        <small id="newsMsg" role="status"></small>
+      </form>
+    </div>
+
+    <nav class="footer__col" aria-label="Produk">
+      <h4>Produk</h4>
+      <a href="#fitur">Fitur</a><a href="#amplop">Amplop</a><a href="#harga">Harga</a><a href="#tampilan">Tampilan</a>
+    </nav>
+    <nav class="footer__col" aria-label="Perusahaan">
+      <h4>Perusahaan</h4>
+      <a href="#">Tentang kami</a><a href="#">Blog</a><a href="#">Karier</a><a href="#">Kontak</a>
+    </nav>
+    <nav class="footer__col" aria-label="Bantuan">
+      <h4>Bantuan</h4>
+      <a href="#faq">FAQ</a><a href="#">Panduan</a><a href="#">Privasi</a><a href="#">Syarat & ketentuan</a>
+    </nav>
+  </div>
+
+  <div class="container footer__bottom">
+    <p>© 2026 UangKu. Dibuat di Indonesia.</p>
+    <div class="footer__social">
+      <a href="#" aria-label="Instagram">Ig</a><a href="#" aria-label="Twitter">X</a><a href="#" aria-label="TikTok">Tt</a>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Kembali ke atas">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
