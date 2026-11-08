@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" href="images/Logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600;1,9..144,700&family=Instrument+Sans:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -23,15 +23,15 @@
       <span class="brand__word">Uang<em>Ku</em></span>
     </a>
     <nav class="nav__links" id="navLinks" aria-label="Navigasi utama">
-      <a href="#amplop"><span>01</span>Amplop</a>
-      <a href="#fitur"><span>02</span>Fitur</a>
-      <a href="#catatan"><span>03</span>Catatan</a>
-      <a href="#cara"><span>04</span>Cara</a>
-      <a href="#cerita"><span>05</span>Cerita</a>
-      <a href="#faq"><span>06</span>FAQ</a>
+      <a href="#amplop"><span></span>Amplop</a>
+      <a href="#fitur"><span></span>Fitur</a>
+      <a href="#catatan"><span></span>Catatan</a>
+      <a href="#cara"><span></span>Cara</a>
+      <a href="#cerita"><span></span>Cerita</a>
+      <a href="#faq"><span></span>FAQ</a>
     </nav>
     <div class="nav__side">
-      <a href="#unduh" class="btn btn--dark btn--sm" data-toast="Membuka halaman unduh UangKu.">Unduh gratis</a>
+      <a href="https://expo.dev/artifacts/eas/d15xmd2kbiOhgwBvqdyUy-u76m4sup8Km4NLZkufST8.apk" class="btn btn--dark btn--sm">Unduh gratis</a>
       <button class="burger" id="burger" aria-expanded="false" aria-controls="navLinks" aria-label="Buka menu">
         <span></span><span></span>
       </button>
@@ -54,7 +54,7 @@
       <div class="hero__row">
         <p class="lede">UangKu membagi gajimu ke amplop digital seperti Makan dan Minum, Transport, dan Darurat. Catat dalam dua ketukan, sisa uang terlihat jelas.</p>
         <div class="hero__cta">
-          <a href="#unduh" class="btn btn--dark btn--lg" data-toast="Membuka halaman unduh UangKu.">Unduh gratis</a>
+          <a href="https://expo.dev/artifacts/eas/d15xmd2kbiOhgwBvqdyUy-u76m4sup8Km4NLZkufST8.apk" class="btn btn--dark btn--lg">Unduh gratis</a>
           <a href="#simulasi" class="btn btn--line btn--lg">Coba simulasi</a>
         </div>
       </div>
@@ -65,26 +65,32 @@
     </div>
 
     <div class="hero__visual" data-tilt>
-      <div class="arch">
-        <div class="arch__top">
-          <span>Oktober 2026</span>
-          <span>Total bulan ini</span>
+      <div class="hero__halo" aria-hidden="true"></div>
+      <div class="device">
+        <div class="device__frame">
+          <div class="device__screen">
+            <img src="images/Beranda.png" alt="Layar Beranda aplikasi UangKu" />
+          </div>
         </div>
-        <img src="images/Beranda.png" alt="Layar Beranda aplikasi UangKu" />
-        <div class="arch__cap">
-          <strong>Rp2.600.000</strong>
-          <span>Sisa uang bulan ini, dari Rp3.000.000</span>
-        </div>
+        <span class="device__btn device__btn--power" aria-hidden="true"></span>
+        <span class="device__btn device__btn--vol" aria-hidden="true"></span>
       </div>
-      <div class="hero__stamp" aria-hidden="true">
-        <span>Amplop<br />digital</span>
+
+      <div class="hero__card" aria-hidden="true">
+        <span class="hero__cardTop">Sisa bulan ini</span>
+        <strong>Rp2.600.000</strong>
+        <span class="hero__cardMeta">dari Rp3.000.000 : 87% tersisa</span>
+        <div class="hero__cardBar"><span></span></div>
       </div>
-      <p class="hero__bubble" aria-hidden="true"><i></i>+ Rp65.000 tercatat barusan</p>
+
+      <p class="hero__pill" aria-hidden="true"><i></i>+ Rp65.000 tercatat</p>
+
       <figure class="hero__mini">
         <img src="images/Detail Amplop.png" alt="Layar Detail Amplop Makan dan Minum" />
-        <figcaption><i></i>Makan dan Minum : 15% terpakai</figcaption>
+        <figcaption><span>Makan dan Minum</span><strong>15%</strong></figcaption>
       </figure>
-      <p class="hero__side"><span aria-hidden="true"></span>Halo, User: 4 amplop aktif bulan ini</p>
+
+      <p class="hero__side"><span aria-hidden="true"></span>4 amplop aktif : Oktober 2026</p>
     </div>
   </div>
   <div class="wrap hero__foot">
@@ -239,7 +245,7 @@
         <div><dt>Otomatis</dt><dd>sisa dan total dihitung setiap catat</dd></div>
         <div><dt>Filter bulan</dt><dd>bandingkan Oktober dengan bulan lalu</dd></div>
       </dl>
-      <a href="#unduh" class="btn btn--cream" data-toast="Membuka halaman unduh UangKu.">Coba catat sekarang</a>
+      <a href="https://expo.dev/artifacts/eas/d15xmd2kbiOhgwBvqdyUy-u76m4sup8Km4NLZkufST8.apk" class="btn btn--cream">Coba catat sekarang</a>
     </div>
     <div class="ledger__visual">
       <div class="sheet" id="sheet">
@@ -264,9 +270,9 @@
 <section class="sim" id="simulasi">
   <div class="wrap sim__box">
     <div class="sim__copy">
-      <p class="label label--light">Sela : Simulasi</p>
-      <h2 class="h2 h2--cream">Geser, dan lihat<br />uangmu <em>diatur.</em></h2>
-      <p class="body body--cream">Mainkan gaji dan porsi amplopmu. Angka dan bar bergerak mengikuti jarimu, persis seperti di aplikasi.</p>
+      <p class="label">Sela : Simulasi</p>
+      <h2 class="h2">Geser, dan lihat<br />uangmu <em>diatur.</em></h2>
+      <p class="body">Mainkan gaji dan porsi amplopmu. Angka dan bar bergerak mengikuti jarimu, persis seperti di aplikasi.</p>
       <div class="sim__presets" aria-label="Preset porsi">
         <button data-preset="kos" class="is-active">Anak kos</button>
         <button data-preset="kerja">First jobber</button>
@@ -289,7 +295,7 @@
       <div class="sim__row sim__row--lilac"><div><strong>Jajan dan Hiburan</strong><span id="aJajan">Rp400.000</span></div><div class="sim__bar"><span id="bJajan" style="width:13%"></span></div></div>
       <div class="sim__row sim__row--sage"><div><strong>Darurat</strong><span id="aDarurat">Rp800.000</span></div><div class="sim__bar"><span id="bDarurat" style="width:27%"></span></div></div>
       <p class="sim__note" id="simNote">Total 100% : pas satu gaji.</p>
-      <button class="btn btn--cream" id="simPakai" data-toast="Porsi tersimpan. Tinggal buat amplopnya di aplikasi.">Pakai porsi ini</button>
+      <button class="btn btn--dark" id="simPakai" data-toast="Porsi tersimpan. Tinggal buat amplopnya di aplikasi.">Pakai porsi ini</button>
     </div>
   </div>
 </section>
@@ -435,8 +441,8 @@
       <h2 class="display display--sm">Bulan depan,<br />kamu yang <em>tenang.</em></h2>
       <p class="body">Unduh UangKu, buat amplop pertamamu dalam semenit, dan rasakan bedanya saat tanggal tua tiba.</p>
       <div class="hero__cta">
-        <a href="#atas" class="btn btn--dark btn--lg" data-toast="Membuka Google Play untuk UangKu.">Unduh untuk Android</a>
-        <a href="#atas" class="btn btn--line btn--lg" data-toast="Membuka App Store untuk UangKu.">Unduh untuk iOS</a>
+        <a href="https://expo.dev/artifacts/eas/d15xmd2kbiOhgwBvqdyUy-u76m4sup8Km4NLZkufST8.apk" class="btn btn--dark btn--lg">Unduh untuk Android</a>
+        <a href="https://expo.dev/artifacts/eas/d15xmd2kbiOhgwBvqdyUy-u76m4sup8Km4NLZkufST8.apk" class="btn btn--line btn--lg">Unduh untuk iOS</a>
       </div>
       <p class="caption">Gratis : Ukuran ringan : Tanpa daftar panjang : ★ 4,9 dari 12.400 ulasan</p>
     </div>
